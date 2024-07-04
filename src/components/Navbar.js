@@ -9,25 +9,14 @@ export const Navbar = () => {
 
   return (
     <Box
-      sx={
-        laptop
-          ? {
-              padding: "1em 3em",
-              display: "flex",
-              justifyContent: "space-between",
-              position: "sticky",
-              top: 0,
-            }
-          : {
-              position: "sticky",
-              top: 0,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "10px",
-              backgroundColor: "white",
-            }
-      }
+      sx={{
+        padding: "1em 3em",
+        display: "flex",
+        justifyContent: "space-between",
+        position: "sticky",
+        top: 0,
+      }}
+      className="navbar-responsive"
     >
       <Box>
         <a href="/">

@@ -19,15 +19,8 @@ export const Technologies = () => {
         Technologies
       </Typography>
       <Box
-        sx={
-          laptop
-            ? { display: "flex", flexWrap: "wrap", padding: "1em" }
-            : {
-                display: "flex",
-                flexDirection: "column",
-                alignItems: 'center'
-              }
-        }
+        sx={{ display: "flex", flexWrap: "wrap", padding: "1em" }}
+        className="technologies-container"
       >
         {technologiesData.map((technologie) => (
           <Box

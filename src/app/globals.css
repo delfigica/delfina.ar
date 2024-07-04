@@ -14,3 +14,20 @@ a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
 }
+
+@media (max-width: 600px) {
+  .navbar-responsive {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+  }
+  .technologies-container {
+    display: 'flex';
+    flex-direction: column;
+    align-items: center;
+  }
+}
