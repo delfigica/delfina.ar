@@ -39,7 +39,7 @@ export const Banner = () => {
                 }
           }
         >
-          Hey, I´m Delfina
+          Hey, I&apos;m Delfina
         </Typography>
         <Typography sx={{ fontSize: "2.4em" }} className="banner-subtitle">
           Software developer

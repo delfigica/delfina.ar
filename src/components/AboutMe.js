@@ -22,7 +22,7 @@ export const AboutMe = () => {
           padding: "1em",
         }}
       >
-        My name is María Delfina Cañas, and I am a software developer. Although
+        My name is María Delfina Cañas, and I&apos;m a software developer. Although
         I have the capability to work on both the backend and the frontend, my
         true passion lies in frontend development. I enjoy finding creative
         solutions to the problems I encounter, and I practice this skill both

@@ -5,8 +5,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 export const ProjectCard = ({ project }) => {
   return (
-    <Card elevation={3} sx={{ maxWidth: "420px" }}>
-      <Box></Box>
+    <Card elevation={3} sx={{ maxWidth: "420px", margin: '15px' }}>
       <Box sx={{ padding: "1em" }}>
         <Box
           sx={{
@@ -18,7 +17,7 @@ export const ProjectCard = ({ project }) => {
           <Typography sx={{ fontSize: "1.6em", textTransform: "uppercase" }}>
             {project?.title}
           </Typography>
-          <Box>
+          <Box sx={{minWidth: '80px'}}>
             <a href={project.url} target="_blank">
               <LanguageIcon
                 sx={{
