@@ -33,6 +33,15 @@ export const Projects = () => {
       github: "https://github.com/delfigica/blogr-landing-page",
       tags: ["landing-page", "next-js", "css"],
     },
+    {
+      id: "loopstudios-landing-page",
+      title: "Loopstudios",
+      description:
+        "This project is a landing page created with HTML and CSS, and the design is based on a page from Frontend Mentor. The landing page is designed to showcase a product or service, and it has been developed to be fully responsive on all devices.",
+      url: "https://delfigica.github.io/loopstudios-landing-page",
+      github: "https://github.com/delfigica/loopstudios-landing-page",
+      tags: ["landing-page", "next-js", "css"],
+    }
   ];
   return (
     <Box
@@ -43,7 +52,7 @@ export const Projects = () => {
       <Typography sx={{ fontSize: "3em", textTransform: "uppercase" }}>
         Projects
       </Typography>
-      <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: 'space-evenly' }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: 'center' }}>
         {projectsData.map((project) => (
           <ProjectCard project={project} key={project.id} />
         ))}
