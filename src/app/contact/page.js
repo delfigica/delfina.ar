@@ -48,6 +48,7 @@ export default function Contact() {
           fullWidth
           placeholder="Message"
           rows={4}
+          name="message"
         />
         <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
           <Button type="submit" sx={{ width: "250px" }} variant="outlined">
