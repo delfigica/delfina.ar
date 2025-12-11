@@ -1,10 +1,10 @@
+"use client";
+import React from "react";
+
 import { Navbar } from "@/components/Navbar";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 
 export default function Contact() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <>
     <Navbar />

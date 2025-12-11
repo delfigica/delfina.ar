@@ -3,8 +3,10 @@ import { AboutMe } from "@/components/AboutMe";
 import { Technologies } from "@/components/Technologies";
 import { Projects } from "@/components/Projects";
 import { Navbar } from "@/components/Navbar";
-import "@/app/globals.css";
+
 import { Box, Container } from "@mui/material";
+import "@/app/globals.css";
+
 export default function Home() {
   return (
     <Box sx={{ backgroundColor: "#EFF1EF" }}>

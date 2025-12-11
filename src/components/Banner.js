@@ -31,7 +31,7 @@ export const Banner = () => {
       2000
     );
     return () => clearInterval(timer);
-  }, []);
+  }, [words]);
 
   return (
     <Box sx={{ minHeight: "90vh" }}>
