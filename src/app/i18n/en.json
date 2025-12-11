@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "contact": "Contact"
+  },
+  "banner": {
+    "title": "Build your next {{thing}}",
+    "text": " Hi, I'm Delfina — Frontend Developer specialized in crafting modern, fast, and user-focused web experiences.",
+    "btns": {
+      "contact": "Contact me",
+      "github": "Github"
+    }
+  },
+  "project": {
+    "title": "Projects"
+  }
+}

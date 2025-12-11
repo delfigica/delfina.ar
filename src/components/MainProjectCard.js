@@ -1,32 +1,49 @@
+"use client";
 import React from "react";
-import {
-  Box,
-  Card,
-  Chip,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+
+import "@/app/globals.css";
+import Image from "next/image";
+import { Box, Chip, Typography, useMediaQuery, useTheme } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-export const ProjectCard = ({ project }) => {
+export const MainProjectCard = ({ project }) => {
   const theme = useTheme();
   const laptop = useMediaQuery(theme.breakpoints.up("lg"));
   return (
     <Box
-      sx={ laptop ? {
-        maxWidth: "90%",
-        margin: "15px",
-        display: "flex",
-        alignItems: "flex-start",
-      } : {
-        display: "flex",
-        alignItems: "flex-start",
-        margin: '5px 0px'
-      }}
+      sx={laptop ? { minHeight: "70vh", width: "100%" } : { padding: "0 1em" }}
     >
-      <Box sx={{ padding: "1em" }}>
+      <Box
+        sx={
+          laptop
+            ? {
+                backgroundImage: `url(${project.image})`,
+                width: "400px",
+                height: "280px",
+                borderRadius: "20px",
+              }
+            : {
+                backgroundImage: `url(${project.image})`,
+                width: "100%",
+                height: "250px",
+                borderRadius: "20px",
+              }
+        }
+      >
+        <Image
+          src={project.image}
+          width={laptop ? 400 : 350}
+          height={laptop ? 280 : 250}
+          style={{
+            objectFit: "cover",
+            objectPosition: "top",
+            borderRadius: "15px",
+          }}
+          alt={project.id}
+        />
+      </Box>
+      <Box>
         <Box
           sx={{
             display: "flex",
@@ -34,10 +51,16 @@ export const ProjectCard = ({ project }) => {
             justifyContent: "space-between",
           }}
         >
-          <Typography sx={{ fontSize: "1.6em", textTransform: "uppercase" }}>
-            {project?.title}
+          <Typography
+            sx={{
+              fontSize: "1.5em",
+              textTransform: "uppercase",
+              margin: "5px 0px",
+            }}
+          >
+            {project.title}
           </Typography>
-          <Box sx={{ minWidth: "80px" }}>
+          <Box>
             <a href={project.url} target="_blank">
               <LanguageIcon
                 sx={{
@@ -57,8 +80,8 @@ export const ProjectCard = ({ project }) => {
             <Chip
               label={tag}
               sx={{ margin: "3px", fontWeight: "600", padding: "1em .5em" }}
-              key={tag}
               size="small"
+              key={tag}
             />
           ))}
         </Box>

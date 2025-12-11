@@ -1,11 +1,60 @@
-import React from "react";
-import { Box, Card, Chip, Typography } from "@mui/material";
-import LanguageIcon from "@mui/icons-material/Language";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import { ProjectCard } from "./ProjectCard";
+"use client";
+import React, { useState } from "react";
 
+//TRANSLATE
+import "@/app/i18n";
+import { useTranslation } from "next-i18next";
+
+import { ProjectCard } from "./ProjectCard";
+import { MainProjectCard } from "./MainProjectCard";
+
+//STYLE
+import {
+  Box,
+  Button,
+  Card,
+  Chip,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+
+//IMAGES
+import crosstime from "@/assets/projects/crosstime.png";
+import bentogrid from "@/assets/projects/bento-grid.png";
+import talkright from "@/assets/projects/talk-right.png";
+import agecalculator from "@/assets/projects/age-calculator-react-app.png";
+import rockpaperscissors from "@/assets/projects/rock-paper-scissors.png";
+import blogr from "@/assets/projects/blogr-landing-page.png";
+import loopstudios from "@/assets/projects/loopstudios-landing-page.png";
+import multisteps from "@/assets/projects/multi-step-form.png";
+import clearsky from "@/assets/projects/clear-sky.png";
+import advicegenerator from "@/assets/projects/adivice-generator-app.png";
+import tipcalculator from "@/assets/projects/tip-calculator-app.png";
 export const Projects = () => {
+  const { t } = useTranslation();
+
   const projectsData = [
+    {
+      id: "crosstime",
+      title: "Crosstime",
+      description:
+        "CrossFit and functional training timers built with Next.js + Material UI. Includes CAP, OTM, 1:1, Round+Rest, AMRAP, and TABATA timers with customizable settings, 10-second starters, automatic round progression, and clean UI components.",
+      url: "https://delfigica.github.io/crosstime/",
+      github: "https://github.com/delfigica/crosstime",
+      tags: ["nextjs", "material-ui", "router"],
+      image: crosstime,
+    },
+    {
+      id: "bento-grid",
+      title: "Bento Grid",
+      description:
+        "Responsive implementation of a Frontend Mentor challenge using semantic HTML and Tailwind CSS. Built mobile-first with CSS Grid/Flexbox, accessible markup, and pixel-accurate layout.",
+      url: "https://delfigica.github.io/brento-grid/",
+      github: "https://github.com/delfigica/bento-grid",
+      tags: ["html5", "responsive-design", "tailwindcss"],
+      image: bentogrid,
+    },
     {
       id: "talk-right",
       title: "Talk Right",
@@ -14,6 +63,7 @@ export const Projects = () => {
       url: "https://delfigica.github.io/talk-right/",
       github: "https://github.com/delfigica/talk-right",
       tags: ["react", "material-ui", "api-rest"],
+      image: talkright,
     },
     {
       id: "age-calculator",
@@ -23,8 +73,8 @@ export const Projects = () => {
       url: "https://delfigica.github.io/age-calculator-react-app/",
       github: "https://github.com/delfigica/age-calculator-react-app",
       tags: ["react", "next-js", "css"],
+      image: agecalculator,
     },
-    ,
     {
       id: "rock-paper-scissors",
       title: "Rock Paper Scissors",
@@ -33,6 +83,7 @@ export const Projects = () => {
       url: "https://delfigica.github.io/rock-paper-scissors/",
       github: "https://github.com/delfigica/rock-paper-scissors",
       tags: ["reactjs", "game"],
+      image: rockpaperscissors,
     },
     {
       id: "blogr-landing-page",
@@ -42,6 +93,7 @@ export const Projects = () => {
       url: "https://delfigica.github.io/blogr-landing-page/",
       github: "https://github.com/delfigica/blogr-landing-page",
       tags: ["landing-page", "next-js", "css"],
+      image: blogr,
     },
     {
       id: "loopstudios-landing-page",
@@ -51,6 +103,7 @@ export const Projects = () => {
       url: "https://delfigica.github.io/loopstudios-landing-page",
       github: "https://github.com/delfigica/loopstudios-landing-page",
       tags: ["landing-page", "html", "css"],
+      image: loopstudios,
     },
     {
       id: "multi-step-form",
@@ -60,15 +113,17 @@ export const Projects = () => {
       url: "https://delfigica.github.io/multi-step-form",
       github: "https://github.com/delfigica/multi-step-form",
       tags: ["reactJs", "material-ui"],
+      image: multisteps,
     },
     {
       id: "Clear-sky",
       title: "Clear Sky",
       description:
         "Clear Sky is an Angular app that provides weather information for multiple cities using the OpenWeatherMap API. With a custom design, it offers an intuitive interface for checking current weather conditions and forecasts.",
-      url: "https://delfigica.github.io/Clear-sky",
-      github: "https://github.com/delfigica/Clear-sky",
+      url: "https://delfigica.github.io/Clear-Sky",
+      github: "https://github.com/delfigica/Clear-Sky",
       tags: ["angular", "rest-api"],
+      image: clearsky,
     },
     {
       id: "advice-generator-app",
@@ -78,6 +133,7 @@ export const Projects = () => {
       url: "https://delfigica.github.io/advice-generator-app",
       github: "https://github.com/delfigica/advice-generator-app",
       tags: ["react", "rest-api"],
+      image: advicegenerator,
     },
     {
       id: "tip-calculator-app",
@@ -87,21 +143,78 @@ export const Projects = () => {
       url: "https://delfigica.github.io/tip-calculator-app",
       github: "https://github.com/delfigica/tip-calculator-app",
       tags: ["react", "css"],
+      image: tipcalculator,
     },
   ];
+
+  const [mainProject, setMainProject] = useState(projectsData[0]);
+  const [otherProjects, setOtherProjects] = useState(projectsData.slice(1, 3));
+
+  const handleNextProject = () => {
+    const currentIndex = projectsData.findIndex(
+      (project) => project.id === mainProject.id
+    );
+
+    const nextMainIndex = (currentIndex + 1) % projectsData.length;
+    const other1Index = (nextMainIndex + 1) % projectsData.length;
+    const other2Index = (nextMainIndex + 2) % projectsData.length;
+
+    setMainProject(projectsData[nextMainIndex]);
+    setOtherProjects([projectsData[other1Index], projectsData[other2Index]]);
+  };
+
+  const handlePrevProject = () => {
+    const currentIndex = projectsData.findIndex(
+      (project) => project.id === mainProject.id
+    );
+
+    const prevMainIndex =
+      (currentIndex - 1 + projectsData.length) % projectsData.length;
+    const other1Index = (prevMainIndex + 1) % projectsData.length;
+    const other2Index = (prevMainIndex + 2) % projectsData.length;
+
+    setMainProject(projectsData[prevMainIndex]);
+    setOtherProjects([projectsData[other1Index], projectsData[other2Index]]);
+  };
+
+  const theme = useTheme();
+  const laptop = useMediaQuery(theme.breakpoints.up("lg"));
+
   return (
     <Box
       sx={{
-        margin: "20px 0px",
+        margin: "20px 0px 0px 0px",
+        padding: "2em 0",
       }}
     >
-      <Typography sx={{ fontSize: "3em", textTransform: "uppercase" }}>
-        Projects
+      <Typography
+        sx={{ fontSize: "3em", textTransform: "uppercase", margin: "10px 0px" }}
+      >
+        {t("project.title")}
       </Typography>
-      <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-        {projectsData.map((project) => (
-          <ProjectCard project={project} key={project.id} />
-        ))}
+      <Box sx={laptop ? { display: "flex" } : {display: 'flex', flexWrap: 'wrap'}}>
+        <MainProjectCard project={mainProject} />
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "flex-end",
+            marginTop: "-20px",
+            height: "100%",
+          }}
+        >
+          {otherProjects.map((project) => (
+            <ProjectCard project={project} key={project.id} />
+          ))}
+          <Box>
+            <Button sx={{ margin: "0px 5px" }} onClick={handlePrevProject}>
+              Back
+            </Button>
+            <Button sx={{ margin: "0px 5px" }} onClick={handleNextProject}>
+              See More
+            </Button>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

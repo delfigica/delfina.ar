@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "contact": "Contacto"
+  },
+  "banner": {
+    "title": "Construye tu próximo {{thing}}",
+    "text": "Hola! Soy Delfina - Desarrolladora Frontend especializada en crear experiencias con webs modernas, rápidas y centradas en el usuario.",
+    "btns": {
+      "contact": "Contactarme",
+      "github": "Github"
+    }
+  },
+  "project": {
+    "title": "Proyectos"
+  }
+}

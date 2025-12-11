@@ -1,16 +1,20 @@
-import { Box, Container, Typography } from "@mui/material";
 import { Banner } from "@/components/Banner";
 import { AboutMe } from "@/components/AboutMe";
 import { Technologies } from "@/components/Technologies";
 import { Projects } from "@/components/Projects";
-import '@/app/globals.css'
+import { Navbar } from "@/components/Navbar";
+import "@/app/globals.css";
+import { Box, Container } from "@mui/material";
 export default function Home() {
   return (
-    <Container>
-      <Banner />
-      <AboutMe />
-      <Technologies />
-      <Projects />
-    </Container>
+    <Box sx={{ backgroundColor: "#EFF1EF" }}>
+      <Navbar />
+      <Container>
+        <Banner />
+        <AboutMe />
+        <Technologies />
+        <Projects />
+      </Container>
+    </Box>
   );
 }

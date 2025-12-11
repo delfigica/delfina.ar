@@ -1,0 +1,11 @@
+{
+    "banner": {
+        "title": "Desarrolladora de software",
+        "subtitle": "Soy Delfina, frontend developer con +3 años de experiencia creando webs y apps enfocadas en usabilidad, performance y diseño atractivo.",
+        "btns": {
+            "projects": "ver proyectos",
+            "resume": "ver cv",
+            "lenguaje": "change to eng"
+        }
+    }
+}
