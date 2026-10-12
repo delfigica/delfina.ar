@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "eyebrow": "hi, I'm Delfi",
+    "location": "Córdoba, Argentina",
+    "titleLine1": "Software",
+    "titleLine2": "developer",
+    "description": "I build sites, products and tools that solve real problems, from idea to launch.",
+    "tags": {
+      "web": "Web pages",
+      "software": "Software",
+      "ai": "AI automation",
+      "mvps": "MVPs"
+    },
+    "writeMe": "Write to me",
+    "github": "GitHub",
+    "cv": "View CV"
+  }
+}

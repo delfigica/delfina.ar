@@ -1,5 +1,8 @@
-## Welcome to my page
+# delfina.ar
 
-A basic page about me, my projects and technologies.
+Personal site — Nuxt 4 + Nuxt UI 4.
 
-I use NextJs and Material UI
+```bash
+bun install
+bun dev
+```

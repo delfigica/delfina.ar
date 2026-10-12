@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "eyebrow": "hola, soy Delfi",
+    "location": "Córdoba, Argentina",
+    "titleLine1": "Desarrolladora",
+    "titleLine2": "de software",
+    "description": "Construyo sitios, productos y herramientas que resuelven problemas reales, de la idea al lanzamiento.",
+    "tags": {
+      "web": "Páginas web",
+      "software": "Software",
+      "ai": "Automatizaciones con IA",
+      "mvps": "MVPs"
+    },
+    "writeMe": "Escribime",
+    "github": "GitHub",
+    "cv": "Ver CV"
+  }
+}
