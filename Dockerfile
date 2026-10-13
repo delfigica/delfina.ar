@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY package.json bun.lock* ./
 
-RUN --mount=type=cache,id=delfina-ar-bun-install,target=/root/.bun/install/cache \
+RUN --mount=type=cache,id=s/8d348a5f-a679-44d1-a443-c01c6b40cf45-bun-install,target=/root/.bun/install/cache \
     bun install --frozen-lockfile --ignore-scripts
 
 COPY . .
