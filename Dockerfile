@@ -1,13 +1,19 @@
 # Multi-stage Docker build for Nuxt 4 app on Railway.
-# Based on https://content.nuxt.com/docs/deploy/docker + Railway BuildKit cache mounts.
+# Based on https://content.nuxt.com/docs/deploy/docker
 
 FROM oven/bun:1 AS build
 WORKDIR /app
 
 COPY package.json bun.lock* ./
 
-RUN --mount=type=cache,id=s/8d348a5f-a679-44d1-a443-c01c6b40cf45-bun-install,target=/root/.bun/install/cache \
-    bun install --frozen-lockfile --ignore-scripts
+# No BuildKit cache mount here on purpose. Railway requires the mount id to
+# carry an `s/<service-id>-` prefix bound to the *current* service, so the id
+# breaks the build every time the service moves between projects (verified
+# twice on this repo: a plain string id is rejected outright, and a stale
+# service id fails validation before any step runs). This app installs ~900
+# packages in well under a minute, so the cache buys very little — not worth
+# a build that breaks on every service move.
+RUN bun install --frozen-lockfile --ignore-scripts
 
 COPY . .
 
